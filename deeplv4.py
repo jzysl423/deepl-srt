@@ -81,7 +81,7 @@ def paste_it(chunk):
         time.sleep(18)
 
     # Getting button location on  the html tree
-    button_css = 'div.lmt__target_toolbar__copy_container button'
+    button_css = 'div.lmt__target_toolbar_right button'
 
     # Getting the button object
     button = driver.find_element_by_css_selector(button_css)
@@ -115,7 +115,7 @@ def Sub2Eng(srt_path=None):
     driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # Reach the deepL website
-    deepl_url = 'https://www.deepl.com/en/translator#'
+    deepl_url = 'https://www.deepl.com/zh/translator#'
     driver.get(deepl_url)
 
     # Keeping old functionality but now allow for traditional command line inputs as well as module import to be used
@@ -214,7 +214,7 @@ def Sub2Eng(srt_path=None):
         with open(completeName, 'w', encoding='utf-8') as g:
             g.write(finaltext3)
 
-        finalsrt = os.path.splitext(srt)[0] + '.dl.en.srt'
+        finalsrt = os.path.splitext(srt)[0] + '.dl.zh.srt'
         try:
             combine_srt(srt, completeName, finalsrt)
         except IndexError:
