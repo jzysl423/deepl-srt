@@ -158,7 +158,7 @@ def Sub2Eng(srt_path=None):
         counter = 1
 
         print(f'Working on {os.path.basename(srt)}')
-        if len(all_text) < 5000:
+        if len(all_text) < 4950:
             print('the whole text can be pasted')
             content = paste_it(all_text)
             finaltext += content
@@ -178,7 +178,7 @@ def Sub2Eng(srt_path=None):
                     sentence = ""
 
             for sentence in list_sentence:
-                if len(chunk) <= 4950 and sentence is not list_sentence[-1]:
+                if len(chunk) <= 4800 and sentence is not list_sentence[-1]:
                     chunk += sentence
                 elif sentence is list_sentence[-1]:
                     chunk += sentence
@@ -214,7 +214,7 @@ def Sub2Eng(srt_path=None):
         with open(completeName, 'w', encoding='utf-8') as g:
             g.write(finaltext3)
 
-        finalsrt = os.path.splitext(srt)[0] + '.dl.zh.srt'
+        finalsrt = os.path.splitext(srt)[0] + '.deepl.srt'
         try:
             combine_srt(srt, completeName, finalsrt)
         except IndexError:
